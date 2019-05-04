@@ -1,2 +1,2 @@
-# Java311
-java311  class
+# java312
+java class(junior)
