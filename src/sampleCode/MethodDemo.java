@@ -42,7 +42,6 @@ public class MethodDemo {
             A[i] = A[j];
             A[j] = tmp;
         }
-
     }
 
     public static int[] genRandArray(int size, int lower, int upper) {

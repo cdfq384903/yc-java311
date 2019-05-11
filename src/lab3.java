@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class lab3 {
 
-    public static int[] arrayGenerator(int size, int lowerBound, int upperBound){
+    public static int[] numberGeneratorR(int size, int lowerBound, int upperBound){
         int[] array = new int[size];
         Random random = new Random();
 
@@ -28,10 +28,29 @@ public class lab3 {
         return array;
     }
 
+    public static int[] numberGeneratorWOR(int size, int lowerBound){
+        int[] array = new int[size];
+        for (int i = lowerBound; i < (size + lowerBound); i++){
+            array[i] = i;
+        }
+        return array;
+    }
+
+    public static void shuffle(int[] array){
+        Random random = new Random();
+        for (int i = 0 ; i < array.length; i++){
+            int randomIndicator = random.nextInt(array.length);
+            int tmpElement = array[i];
+            array[i] = array[randomIndicator];
+            array[randomIndicator] = tmpElement;
+        }
+    }
+
     public static void showArrayElements(int[] array){
         for (int i = 0; i <array.length; i++){
             System.out.printf("%2d ", array[i]);
         }
+        System.out.println();
     }
 
     public static void swap(int[] array, int indexA, int indexB) {
@@ -161,7 +180,7 @@ public class lab3 {
 
         //實驗不同的size
         for (int n:listN){
-            int[] tmpArray = arrayGenerator(n,-1000,1000);
+            int[] tmpArray = numberGeneratorR(n,-1000,1000);
 //        showArrayElements(tmpArray);
 //        System.out.println();
 //
