@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.stream.IntStream;
 
 public class lab2 {
 
@@ -63,12 +64,12 @@ public class lab2 {
             System.out.println(result);
         }
         System.out.println();
+
         //移除重複的group
         ArrayList<Integer> duplicateList = new ArrayList<Integer>();
-//        ArrayList duplicateList = new ArrayList();
         for (int i = 0 ; i < groupList.size(); i++){
-            System.out.println("Before groupList: " + groupList);
-            System.out.println("Before groupListSize: " + groupList.size());
+//            System.out.println("Before groupList: " + groupList);
+//            System.out.println("Before groupListSize: " + groupList.size());
             for (int j = 0; j < groupList.size(); j++){
                 if (i == j ){
                     continue;
@@ -77,22 +78,13 @@ public class lab2 {
                     duplicateList.add(j);
                 }
             }
-            System.out.println("duplicateList: " + duplicateList);
-            groupList.removeAll(duplicateList);
-//            for (int j = 0; j < duplicateList.size(); j++){
-////                System.out.println(duplicateList.get(j));
-//                int removeValue = (int) duplicateList.get(j);
-//                System.out.println(removeValue);
-//                groupList.remove(removeValue);
-//
-//            }
-//            for (Object removeIndex:duplicateList){
-//                System.out.println("removeIndex: " + removeIndex);
-//                groupList.remove(removeIndex);
-//            }
+//            System.out.println("duplicateList: " + duplicateList);
+            for (int j = 0 ; j < duplicateList.size(); j++){
+                groupList.remove((duplicateList.get(j)-j));
+            }
             duplicateList.clear();
-            System.out.println("After groupList: " + groupList);
-            System.out.println("After groupListSzie: " + groupList.size());
+//            System.out.println("After groupList: " + groupList);
+//            System.out.println("After groupListSzie: " + groupList.size());
         }
         System.out.println(groupList);
 
