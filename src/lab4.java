@@ -24,24 +24,17 @@ public class lab4 {
         return n;
     }
 
-    public static float power1(float x, int n){
-        if (n > 0){
-            double check = n / 2;
-            System.out.println("check:" + check);
-            double y = power1(x , n / 2);
-            System.out.println("before:" + y);
-            y = y * y;
-            System.out.println("after:" + y);
+    //O(log n) time
+    public static double power1(float x, int n){
 
-//            n = n-1;
-//            return (x*power(x,n));
-//        }else if(n == 0 ){
-//            return 1;
-//        }else if(n < 0){
-//            int y = Math.abs(n);
-//            return (1 / power(x,y));
+        System.out.println("n:" + n);
+        if (n == 0) return 1;
+        double y = power1(x , n / 2);
+        y = y * y;
+        if (n % 2 == 1) {
+            y = y * x;
         }
-        return n;
+        return y;
     }
 
 
@@ -56,7 +49,7 @@ public class lab4 {
 //        System.out.println(z);
 //        input.close();
 
-        double test = power1(2,5);
+        double test = power1(2,10);
         System.out.println(test);
 
 
